@@ -1,0 +1,42 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Lali - Pediatric Nurse & Professional Nanny" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <ViewTransitions />
+  </head>
+  <body class="bg-gray-50">
+    <div class="fixed inset-0 -z-10 opacity-5">
+      <svg width="100%" height="100%">
+        <pattern id="pattern-circles" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse" patternContentUnits="userSpaceOnUse">
+          <circle cx="10" cy="10" r="2" fill="#2563eb" />
+          <path d="M20 20h4v4h-4z" fill="#2563eb" />
+        </pattern>
+        <rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-circles)" />
+      </svg>
+    </div>
+    <slot />
+    <script is:inline src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script is:inline>
+      AOS.init({
+        duration: 800,
+        once: false,
+      });
+    </script>
+  </body>
+</html>

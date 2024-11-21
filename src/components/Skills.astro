@@ -1,0 +1,73 @@
+---
+const skills = [
+  {
+    title: "Child Development Knowledge",
+    description: "Understanding physical and emotional development stages",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>`
+  },
+  {
+    title: "Infant and Toddler Care",
+    description: "Proficient in caring for newborns and young children",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>`
+  },
+  {
+    title: "Emergency Response",
+    description: "Trained in pediatric CPR and First Aid",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+    </svg>`
+  },
+  {
+    title: "Time Management",
+    description: "Skilled at managing busy schedules and activity coordination",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>`
+  },
+  {
+    title: "Live-In Care Expertise",
+    description: "Experience in providing 24/7 care in a home environment",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+    </svg>`
+  },
+  {
+    title: "Communication",
+    description: "Strong interpersonal skills for maintaining open communication",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+    </svg>`
+  }
+];
+---
+
+<section id="skills" class="py-20 bg-white relative overflow-hidden">
+  <div class="absolute inset-0 -z-10">
+    <svg width="100%" height="100%" class="opacity-5">
+      <pattern id="medical-cross" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+        <path d="M20 0v40M0 20h40" stroke="currentColor" class="text-medical" stroke-width="1"/>
+      </pattern>
+      <rect x="0" y="0" width="100%" height="100%" fill="url(#medical-cross)"/>
+    </svg>
+  </div>
+  <div class="container mx-auto px-6">
+    <h2 class="text-4xl font-bold text-center mb-12 text-medical-dark" data-aos="fade-up">Professional Skills</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {skills.map((skill, index) => (
+        <div 
+          class="p-6 rounded-lg shadow-lg bg-white border border-gray-100 hover:shadow-xl transition-all hover:-translate-y-1"
+          data-aos="fade-up"
+          data-aos-delay={index * 100}
+        >
+          <div class="text-medical mb-4" set:html={skill.icon} />
+          <h3 class="text-xl font-semibold mb-3 text-medical-dark">{skill.title}</h3>
+          <p class="text-gray-600">{skill.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

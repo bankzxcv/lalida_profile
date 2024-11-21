@@ -1,0 +1,52 @@
+---
+const experiences = [
+  {
+    title: "Live-In Au Pair",
+    company: "AUPAIR Program (USA)",
+    period: "2022 - 2024",
+    duties: [
+      "Provided full-time live-in care for twin girls and a newborn",
+      "Applied Montessori principles",
+      "Maintained children's schedules",
+      "Performed light housekeeping tasks",
+      "Utilized beginner American Sign Language (ASL)",
+    ]
+  },
+  {
+    title: "Registered Nurse",
+    company: "PAK CHONG NANA HOSPITAL (Korat, Thailand)",
+    period: "2018 - 2022",
+    duties: [
+      "Administered injections and immunizations",
+      "Provided wound care and parent education",
+      "Collaborated with healthcare teams",
+      "Monitored patients' vital signs",
+      "Managed medical records"
+    ]
+  }
+];
+---
+
+<section id="experience" class="py-20 bg-gray-50">
+  <div class="container mx-auto px-6">
+    <h2 class="text-4xl font-bold text-center mb-12" data-aos="fade-up">Experience</h2>
+    <div class="space-y-12">
+      {experiences.map((exp, index) => (
+        <div 
+          class="bg-white p-8 rounded-lg shadow-lg"
+          data-aos="fade-up"
+          data-aos-delay={index * 100}
+        >
+          <h3 class="text-2xl font-bold text-primary mb-2">{exp.title}</h3>
+          <p class="text-xl text-gray-600 mb-4">{exp.company}</p>
+          <p class="text-gray-500 mb-4">{exp.period}</p>
+          <ul class="list-disc list-inside space-y-2 text-gray-600">
+            {exp.duties.map(duty => (
+              <li>{duty}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
